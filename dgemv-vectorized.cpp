@@ -8,9 +8,20 @@ const char* dgemv_desc = "Vectorized implementation of matrix-vector multiply.";
  */
 void my_dgemv(int n, double* A, double* x, double* y) {
    // insert your code here: implementation of vectorized vector-matrix multiply
+   /*
    for (int i = 0; i < n; i++) {
       for (int j = 0; j < n; j++) {
          y[i] += A[i * n + j] * x[j];
       }
+   }
+   */
+   for (int i = 0; i < n; i++) {
+        y[i] = 0.0;
+   }
+   for (int j = 0; j < n; j++) {
+        double xj = x[j];  // Load x[j] once for all uses in the loop
+        for (int i = 0; i < n; i++) {
+            y[i] += A[i * n + j] * xj;
+        }
    }
 }

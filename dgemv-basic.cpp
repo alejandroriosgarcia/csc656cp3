@@ -10,7 +10,7 @@ void my_dgemv(int n, double* A, double* x, double* y) {
    // insert your code here: implementation of basic matrix multiply
    // Do A * X portion of operation
    for (int i = 0; i < n; i++) {
-      for (int j = 0; i < n; i++) {
+      for (int j = 0; i < n; j++) {
          y[i] += A[i * n + j] * x[j];
       }
    }
